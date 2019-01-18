@@ -1,0 +1,121 @@
+[type="button"]{
+	background-color: white; 
+    color: black; 
+    border: 1px solid #008CBA;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+[type="button"]:hover{
+   background-color: #008CBA;
+    color: white;
+}	
+button{
+	background-color: white; 
+    color: black; 
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+	border: 1px solid #008CBA;
+}
+button:hover{
+   background-color: #008CBA;
+    color: white;
+}
+#delDesplay{
+border:none;
+border-right:	1px solid #008CBA;
+}
+#updDesplay{
+	 border:none;
+	 border-right:	1px solid #008CBA;
+}
+#addDesplay{
+border:none;
+border-right:	1px solid #008CBA;
+}
+#asscYamls{
+border:none;
+border-right:	1px solid #008CBA;
+}
+#asscDesplay{
+	 border:none;
+}
+ .nvalSapn{
+ padding-left:10px;
+/*  width:200px */
+}
+input[type="text"],[type="password"]{
+	width:100%;
+    color:#333;
+    line-height:normal;
+    font-family:"Microsoft YaHei",Tahoma,Verdana,SimSun;
+    font-style:normal;
+    font-variant:normal;
+    font-size-adjust:none;
+    font-stretch:normal;
+    font-weight:normal;
+    margin-top:0px;
+    margin-bottom:0px;
+    margin-left:0px;
+    padding-top:4px;
+    padding-right:4px;
+    padding-bottom:4px;
+    padding-left:4px;
+    font-size:15px;
+    outline-width:medium;
+    outline-style:none;
+    outline-color:invert;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    text-shadow:0px 1px 2px #fff;
+    background-attachment:scroll;
+    background-repeat:repeat-x;
+    background-position-x:left;
+    background-position-y:top;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:rgb(255,255,255);
+    margin-right:8px;
+    border-top-color:#ccc;
+    border-right-color:#ccc;
+    border-bottom-color:#ccc;
+    border-left-color:#ccc;
+    border-top-width:1px;
+    border-right-width:1px;
+    border-bottom-width:1px;
+    border-left-width:1px;
+    border-top-style:solid;
+    border-right-style:solid;
+    border-bottom-style:solid;
+    border-left-style:solid;   
+}
+input[type="text"]:hover {
+     border: 1px solid #fafafa;
+    -webkit-box-shadow: 0px 0px 6px #007eff;
+     -moz-box-shadow: 0px 0px 5px #007eff;
+     box-shadow: 0px 0px 5px #007eff;   
+}
+input[type="password"]:hover {
+     border: 1px solid #fafafa;
+    -webkit-box-shadow: 0px 0px 6px #007eff;
+     -moz-box-shadow: 0px 0px 5px #007eff;
+     box-shadow: 0px 0px 5px #007eff;   
+}
+#assJob{
+	position: relative;
+    left: 30px;
+    top: 20px;	
+}  
+.submitAssJob{
+	 height:40px; 
+	 width:100px; 
+	margin-right:10px;	 
+}

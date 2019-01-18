@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="CMBC_DevOps模板配置">
+   		 <l:side-panel> 
+			<br/><h2>CMBC_DevOps模板配置</h2>
+			 <br/><br/><br/>
+    		<div id="cmbcListIndex">
+    		<form method="post" id="myForms">
+    			<table class="manageList">
+    				<tr>
+		    			 <th><input style="cursor:pointer;" type="checkbox" onclick="checkboxAll()"/>ID</th>
+		    			 <th>模板类别</th>
+		    			 <th>名称前缀:</th>
+		    			 <!--<th>Job名称</th>-->
+		    			 <th>模板名称</th>
+		    			 <!--<th>当前Yamls</th>-->
+		    			 <th>关联Job</th>
+		    			 <th colspan="2" style="text-align:center">操作</th>
+	    			</tr>
+		    			<j:forEach var="list" items="${it.list}" varStatus="loop">
+			    			<tr>
+			    				<td class="curreYamls"><input type="checkbox" id="${list.key}" value="${list.key}"/>${loop.index+1}</td>
+			    				<td class="curreYamls" onclick="toDetails('${list.key}')">${list.value.assType}</td>
+			    				<td class="curreYamls" onclick="toDetails('${list.key}')" align="left">${list.key}</td>
+			    				<!--<td class="curreYamls" onclick="toDetails('${list.key}')">${list.value.jobName}</td>-->
+			    				<td class="curreYamls" onclick="toDetails('${list.key}')">${list.value.remarks}</td>
+			    				<!--<td class="curreYamls" onclick="toDetails('${list.key}')">${list.value.yamls}</td>-->
+			    				<td class="curreYamls" onclick="toDetails('${list.key}')">${list.value.assJob}</td>
+			    				<td style="text-align:center" class="curreYamls" onclick="toUpdate('${list.key}')">修改 </td>
+			    				<td style="text-align:center" class="curreYamls" onclick="deleteOneTem('${list.key}')">删除 </td>
+			    			</tr>
+		    			</j:forEach>
+    			</table>
+    			<input type="hidden" id="deleteAllValues" name="selKey"/>
+    			</form>
+    		</div>
+       </l:side-panel>
+           <l:main-panel>
+           <br/><br/><br/><br/>
+           		<div id="featuresManage">
+					<!--<select onchange="selTemType"> 
+						<option value="-1">类 别 查 看</option>
+						<j:forEach var="templateType" items="${it.templateType}" >
+						    <option value="${templateType.key}">${templateType.key}</option>
+						</j:forEach>
+					</select>-->            			
+					<a href="addTemplate"><input type="button" value="新增"/></a>					
+					<input type="button" value="批量删除" onclick="deleteAll()"/>
+					<a href="associationYamlsManage"><input type="button" value="Yaml设置"/></a>
+					<a href="addAssociationJob"><input type="button" value="Job设置"/></a>
+				</div>
+            </l:main-panel>
+		            			<!--js引入css引入-->
+			<script type="text/javascript" src="${resURL}/plugin/template/js/template-manage.js"></script>
+			<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/template-manage.css" />    
+    </l:layout>
+</j:jelly>

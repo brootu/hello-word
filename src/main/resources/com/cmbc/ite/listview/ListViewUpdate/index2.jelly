@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <!--<l:layout title="CMBC_DevOps模板配置" type="one-column">  permission="${it.CONFIGURE}"-->
+    <l:layout norefresh="true" title="CMBC_DevOps设置" type="one-column">
+        <l:main-panel>
+        <div class="behavior-loading">加载中</div>
+        <div class="container">
+        <div class="row">
+			<div class="col-md-offset-2 col-md-20">
+			<!-- id="bignav" -->
+				<div id="nav-container">
+			        <div class="jenkins-config-widgets2" >
+			        	<div class="form-config tabBarFrame" id="nvals">
+				         </div>
+			        </div>
+			    </div>    
+			    <form action="templateUpdate" method="post">
+				<table id="text" width="100%" class="config-table scrollspy" style="margin-top: 42px;">
+				<hr></hr><tr><td></td></tr>
+					<tbody id="tab">
+					</tbody> 
+					<!--
+					<tr class="config-table-top-row config_buttons config__">
+						<td colspan="4">
+							<div style="height: 98px;"></div>
+							<div id="bottom-sticker" style="position: fixed; bottom: 0px; left: 218px;">
+							<div class="bottom-sticker-edge"></div><div class="bottom-sticker-inner">
+								<span class="yui-button yui-submit-button submit-button primary" id="yui-gen13" name="Submit">
+								<span class="first-child"><button type="button" tabindex="0" id="yui-gen13-button">保存</button>
+								</span>
+								</span>
+								<input type="hidden" name="core:apply" value=""/>
+								<span class="yui-button yui-push-button apply-button applyButton" id="yui-gen7" name="Apply">
+								<span class="first-child"><button type="button" tabindex="0" id="yui-gen7-button">应用</button>
+								</span></span>
+							</div></div>
+						</td>
+					</tr>
+					-->
+					<tr>
+						<td></td>
+						<td>
+							<span class="yui-button yui-submit-button submit-button primary" id="yui-gen13" name="Submit">
+								<span class="first-child">
+									<button type="submit" tabindex="0" id="yui-gen13-button">提交</button>
+								</span>
+							</span>
+						</td>
+						<td>
+							<span class="yui-button yui-push-button apply-button applyButton" id="yui-gen7" name="Apply">
+								<span class="first-child">
+									<a href="../"><button type="button" tabindex="0" id="yui-gen7-button">返回</button></a>
+								</span>
+							</span>
+						</td>
+					</tr>
+				</table>
+				
+		<input type="hidden" id="thisUrl" name="thisUrl"/>
+		<input type="hidden" id="templateKey" name="templateKey"/>
+				</form>
+			</div>
+		</div>
+		</div>
+		<input type="hidden" value="${resURL}/images/16x16/help.png" id="helpImg"/>
+        <st:bind var="jobyaml" value="${it}"/>
+        </l:main-panel>
+        <link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/list_view_update.css" />
+        <script type="text/javascript" src="${resURL}/plugin/template/js/list-view-update.js"></script>
+        <!--jqu
+	<script type="text/javascript" src="${resURL}/plugin/template/js/jquery-3.3.1.min.js"></script>
+		-->
+        <!--Vue 
+	<script type="text/javascript" src="${resURL}/plugin/template/js/vue.js"></script>
+		-->
+    </l:layout>
+</j:jelly>

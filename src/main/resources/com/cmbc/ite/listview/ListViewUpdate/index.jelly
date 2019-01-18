@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout norefresh="true" title="CMBC_DevOps设置" type="one-column">
+        <l:main-panel>
+        <div class="behavior-loading">加载中</div>
+        <div class="container">
+        <div class="row">
+			<div class="col-md-offset-2 col-md-20" id="col-md-width" >
+				<div id="nav-container" class="nav">
+			        	<div class="form-config" id="nvals" >
+			        		<!--
+			        		<div class="box-selected" id="111" >General</div>
+			        		<div class="box" id="222" >构建触发器</div>
+			        		<div class="box" id="333" >高级项目选项</div>
+			        		-->
+				         </div>
+			    </div>
+				<div id="nval-width" style="width:100%"></div>
+			    <form action="templateUpdate" method="post">
+			    	<table id="config"> 
+				    		<!--
+				    		<tbody>
+				    			<tr class="show">
+				    				<td colspan="4"><div class="section-heade">构建触发器</div></td>
+				    			</tr>
+					    		<tr id="errIdnumber">
+					    			<td class="setting-name">titles</td>
+					    			<td class="setting-main">
+					    				<input value="value" placeholder="descriptions" name="_.'+titles+'" type="text" class="setting-input" id="ersnumber+"></input>
+					    			</td>
+						    		<td class="setting-help">
+						    			<a tabindex="9999">
+							    			<img src="${resURL}/images/16x16/help.png" alt="help" style="width: 16px; height: 16px; " class="setting-help"></img>
+						    			</a>
+					    			</td>
+					    			<td class="setting-no-help"></td>
+					    		</tr>
+					    		<tr><td>11111</td></tr>
+					    		<tr><td>11111</td></tr>
+					    	</tbody>
+					    	-->
+			    	</table>
+			    	<table>
+			    	<tr>
+						<td></td>
+						<td>
+							<span class="yui-button yui-submit-button submit-button primary" id="yui-gen13" name="Submit">
+								<span class="first-child">
+									<button type="submit" tabindex="0" id="yui-gen13-button">提交</button>
+								</span>
+							</span>
+						</td>
+						<td>
+							<span class="yui-button yui-push-button apply-button applyButton" id="yui-gen7" name="Apply">
+								<span class="first-child">
+									<a href="../"><button type="button" tabindex="0" id="yui-gen7-button">返回</button></a>
+								</span>
+							</span>
+						</td>
+					</tr>
+					</table>
+			    			<input type="hidden" id="thisUrl" name="thisUrl"/>
+			    			<input type="hidden" id="folder" name="folder"/>
+			    			<input type="hidden" id="stageName" name="stageName"/>
+							<input type="hidden" id="templateKey" name="templateKey"/>
+				</form>
+			
+			</div>
+			<iframe hidden="hidden" onload="load()"></iframe>
+		</div>
+		</div>
+		<input type="hidden" value="${resURL}/images/16x16/help.png" id="helpImg"/>
+        </l:main-panel>
+        <st:bind var="jobyaml" value="${it}"/>
+        <link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/list_view_update.css" />
+        <!--
+        <link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/list-view-update-tests.css" />
+        <script type="text/javascript" src="${resURL}/plugin/template/js/jquery-2.js"></script>
+        <script type="text/javascript" defer="defer" src="${resURL}/plugin/template/js/list-view-update-test2.js"></script>
+        -->
+        <script type="text/javascript" src="${resURL}/plugin/template/js/list-view-update-tests.js"></script>
+    </l:layout>
+</j:jelly>

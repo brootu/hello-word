@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="CMBC_DevOps模板配置">
+   		 <l:side-panel> 
+			<br/><h1>Template Add</h1>
+			 <br/><br/><br/>
+    		<div id="cmbcList">
+    		<form method="post" id="myForms">
+    			<table id="manageAdd">
+					<tr>
+						<td style="line-height:60px;">模板类别回显</td>
+						<td>
+							<div>
+								<j:forEach var="template" items="${it.templateType}">
+									<div class="listJob" id="${template.key}" onclick="getTemplateType('${template.key}')">${template.key}</div>
+									<img style="float:left;cursor:pointer;" onclick="deleteType('${template.key}')" title="移除类别" src="${resURL}/plugin/template/png/delete.png" alt="移除类别" />
+								</j:forEach>
+							</div>
+						</td>
+					</tr>
+					<tr>    		
+						<td>模板类别</td>
+						<td><input type="text" name="_.templateType" id="templateType"/></td>
+					</tr>	
+					<tr>
+						<td>模板名称:</td>
+						<td id="errors"><input type="text" id="remarks" name="_.remarks"/></td>
+					</tr>					
+					<tr>
+						<td>名称前缀:</td>
+						<td id="errors"><input type="text" id="jobName" name="_.jobName" onchange="uniqueName()"/></td>
+					</tr>
+					<tr>
+						<td>用户名：</td>
+						<td><input type="text" id="uname" name="_.userName"/></td>
+					</tr>
+					<tr>
+						<td>ApiToken：</td>
+						<td><input type="password" id="pwd" name="_.password"/></td>
+					</tr>	
+					<tr>
+						<td>Url：</td>
+						<td><input type="text" id="url" name="_.jobUrl" readonly='readonly'/></td>
+					</tr>
+					<tr>
+						<td style="line-height:60px;">关联Job</td>
+						<td>
+							<div id="assctionJob" class="assctionJob">
+								<j:forEach var="listJob" items="${it.associationJob}">
+									<div class="listJob" id="${listJob.key}" onclick="getAssJob('${listJob.key}')">${listJob.key}</div>
+								</j:forEach>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="line-height:120px;">Yamls：</td>
+						<td>
+							<div class="yamls" style="margin-left:0px">
+								<j:forEach var="listYaml" items="${it.associationYamls}">
+									<div class="listYaml" onclick="appendYamls('${listYaml.key}','${resURL}')">${listYaml.key}</div>										
+								</j:forEach>								
+							</div>
+							<div id="currentYamls" >
+							</div>							
+								<div style="width:60px;height:110px;float:right;">
+									<div class="curreYamls" style="margin-left:20px" onclick="upYamls()"><img title="向上移动" src="${resURL}/plugin/template/png/moveup.png" alt="向上移动" /></div>
+									<div class="curreYamls" style="margin-left:20px" onclick="downYamls()"><img title="向下移动" src="${resURL}/plugin/template/png/movedown.png" alt="向下移动" /></div>
+								</div>
+						</td>
+					</tr>					
+					<tr>
+						<td style="line-height:100px;">JobXml：</td>
+						<td><textarea rows="20" cols="80" id="jobXml" name="_.jobXml"/></td>
+					</tr>	
+					<tr class="submits">
+						<td><input type="button" value="确定" onclick="addTemplate()" id="templateAdd"/></td>
+						<td><input type="reset" value="重置" id="reset"/></td>
+					</tr>
+    			</table>
+    			<!--ajax-->
+			<st:bind var="getTemplateName" value="${it}"/>
+				<!--数据重组 1:Yaml，2关联Job-->
+			<input type="hidden" value="" id="assctionXml" name="bah"/>
+			<input type="hidden" value="" id="yamls" name="_.yamls"/>
+    			</form>	
+    		</div>
+       </l:side-panel>
+	<l:main-panel>
+</l:main-panel>
+		            			<!--js引入css引入-->
+				<script type="text/javascript" src="${resURL}/plugin/template/js/template-manage.js"></script>
+				<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/template-manage.css" />    
+    </l:layout>
+</j:jelly>

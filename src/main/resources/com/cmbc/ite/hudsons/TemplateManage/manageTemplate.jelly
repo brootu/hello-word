@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="CMBC_DevOps模板配置">
+       <l:side-panel> 
+			<h2>CMBC_DevOps模板配置</h2>
+       </l:side-panel>    
+        <l:main-panel>
+		<form name="myForm" method="post" id="myForms">
+			<input type="hidden" value="" id="selKey" name="selKey"/>
+		<j:set var="jobName" />
+			选择模板：<select id="devTypeId" style="width: 400px;height: 30px;font-size: 13px">  
+					<option value="-1">选  择</option>
+					<j:forEach var="devType" items="${it.list}" >
+				    	<option value="${devType.value}" >${devType.key}</option> 
+					</j:forEach>
+				</select>
+					<span class="nvalSapn">
+						<input type="button" value="删除" hidden="true" onclick="submitFun('removeConfig')" id="delDesplay"></input>
+						<input type="button" value="修改 " hidden="true" onclick="submitFun('updateTemplate')" id="updDesplay"></input>
+						<a href="addTemplate"><input type="button" value="新增模板" id="addDesplay"></input></a>
+						<a href="associationYamlsManage"><input type="button" value="自定义Yaml设置" id="asscYamls"></input></a>
+						<a href="addAssociationJob"><input type="button" value="关联job设置" id="asscDesplay"></input></a>
+					</span><br /><br /><br />
+				<table id="tab" style="display:none;border-collapse:separate; border-spacing:0px 10px;" cellspacing="0">
+					<tr>
+						<td>模板名称：</td>
+						<td><input type="text" id="selKeys" name="selKeys"/></td>
+					</tr>
+					<tr>
+						<td>Job名称：	</td>
+						<td><input type="text" id="jobName" name="jobName"/></td>
+					</tr>
+					<tr>
+						<td>用户名：</td>
+						<td><input type="text" id="uname" name="uname"/></td>
+					</tr>
+					<tr>
+						<td>密码：</td>
+						<td><input type="password" id="pwd" name="pwd"/></td>
+					</tr>	
+					<tr>
+						<td>url：</td>
+						<td><input type="text" id="url" name="url"/></td>
+					</tr>
+					<tr>
+						<td>JobXml：</td>
+						<td><textarea rows="20" cols="80" id="jobXml" name="jobXml"/></td>
+					</tr>					
+						<!--<tr>
+							<td>Yaml：</td>
+							<td>
+								<input type="radio" name="vis" value="1" checked="true" onclick="displayYamls(1)" />可视化
+								<input type="radio" name="vis" value="2" onclick="displayYamls(2)"/>源
+							</td>
+						</tr><input type="button" value="查看Yaml" />-->
+							<table id="tab2" style="display:none;">
+								<tr><td><h4>Yamls设置：</h4></td></tr>
+								<tr style="display:none;" id="visualization">
+									<td id="left" style="width: 200px;">可用Yamls：<br/>
+								 	<j:forEach var="assoction" items="${it.associationYamls}" >
+								 	<input type="hidden" value="${assoction.value}" id="${assoction.key}"/>
+									<label draggable="true" onclick="lookStageYaml('${assoction.key}')" style="display:block;margin:5px 2px 6px 5px; font-size:13px;cursor: hand;cursor: pointer; ">
+										Stage：${assoction.key}
+									</label>
+									 </j:forEach>
+									</td>
+									<td width="100px"></td>
+									<td id="visValue" width="300px" style="border: 1px solid #79CDCD;background-color: #79CDCD;"></td>	
+								</tr>
+								<tr id="stageYaml" style="display:none;">
+									<td><textarea rows="10" cols="40" disabled="true" id="stageYamlTextarea"/></td>
+									<td><br/><input type="button" value="收起" onclick="collapse('stageYaml')"/></td>
+								</tr>
+							</table>
+							<table id="assc" style="display:none;">
+								<tr>
+									<td colspan="7"><h4>关联Job设置：</h4></td>
+									<td colspan="2" width="80px"></td>
+									<td><button onclick="submitFun('updateTemplate')" id="accUpdate"> 修改 </button></td>
+								</tr>
+								<tr>
+									<td  style="width: 200px;">可关联:
+										<j:forEach var="devType" items="${it.associationJob}" >
+											<span style="display:block;margin:10px 5px 15px 3px; font-size:17px;cursor: hand;cursor: pointer; ">
+						    				<input type="hidden" value="${devType.value}" id="${devType.key}Hiden"/>
+						    				<span onclick="associationAdd('${devType.key}')" >${devType.key}</span>
+						    				<input type="button" value="查看job" onclick="associationAppend('${devType.key}Hiden')"/></span>
+										</j:forEach>
+									</td>
+									<td width="100px"></td>
+									<td>当前关联:<table id="assTable"></table></td>
+								</tr>
+								<tr id="asscXml" style="display:none;">
+									<td colspan="6"><textarea rows="20" cols="80" disabled="true" id="asscXmlYalue"/></td>
+									<td><br/><input type="button" value="收起" onclick="collapse('asscXml')"/></td>
+								</tr>								
+							</table>							
+					</table>
+					
+					<br /><br /><br />
+			<!--数据重组 1:Yaml，2关联Job-->
+			<input type="hidden" value="" id="assctionXml" name="bah"/>
+			<input type="hidden" value="" id="yamls" name="yamls"/>
+		</form>			
+		            			<!--js引入-->
+				<script type="text/javascript" src="${resURL}/plugin/template/js/manage.js"></script>
+								<!--css引入-->
+				<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/manage.css" />
+        </l:main-panel>
+    </l:layout>
+</j:jelly>

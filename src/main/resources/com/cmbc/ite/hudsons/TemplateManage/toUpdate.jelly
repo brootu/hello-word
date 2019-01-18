@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="CMBC_DevOps模板详情">
+   		 <l:side-panel> 
+			<br/><h1>模板详情</h1>
+			<br/><br/><br/>
+			<div id="cmbcList">
+			<div class="submits" style="margin-left: 700px;">
+				<input style="position:fixed" type="button" name="close" value="关闭" onclick="window.close();" />
+			</div>
+    			<table id="lookManage">
+					<tr>
+						<td>模板类别:</td>
+						<td><input readonly='readonly' type="text" id="templateType" name="_.assType"/></td>
+					</tr>    			
+					<!--<tr>
+						<td>模板名称:</td>
+						<td><input readonly='readonly' type="text" id="selKeys" name="_.name"/></td>
+					</tr>-->
+					<tr>
+						<td>模板名称:</td>
+						<td><input readonly='readonly' type="text" id="remarks" name="_.remarks"/></td>
+					</tr>					
+					<tr>
+						<td>名称前缀:</td>
+						<td><input readonly='readonly' type="text" id="jobName" name="_.jobName"/></td>
+					</tr>
+					<tr>
+						<td>用户名：</td>
+						<td><input readonly='readonly' type="text" id="uname" name="_.userName"/></td>
+					</tr>
+					<tr>
+						<td>ApiToken：</td>
+						<td><input readonly='readonly' type="password" id="pwd" name="_.password"/></td>
+					</tr>	
+					<tr>
+						<td>Url：</td>
+						<td><input readonly='readonly' type="text" id="url" name="_.jobUrl"/></td>
+					</tr>
+					<tr>
+						<td style="line-height:60px;">关联Job</td>
+						<td>
+							<div id="assctionJob" >
+								<j:forEach var="listJob" items="${it.associationJob}">
+									<div class="listJob" id="${listJob.key}" >${listJob.key}</div>
+								</j:forEach>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td style="line-height:120px;">Yamls：</td>
+						<td>
+							<div id="assctionYamls" >
+								<div class="listJob" ></div>
+							</div>
+						</td>	
+					</tr>					
+					<tr>
+						<td style="line-height:100px;">JobXml：</td>
+						<td><textarea readonly='readonly' rows="20" cols="80" id="jobXml" name="_.jobXml"/></td>
+					</tr>	
+					<!--<tr class="submits">
+						<td colspan="3"><input type="button" name="close" value="关闭" onclick="window.close();" /></td>
+					</tr>-->	
+    			</table>
+    		</div>
+       </l:side-panel>
+           <l:main-panel>
+           
+            </l:main-panel>
+		            			<!--js引入css引入-->
+		            			<st:bind var="getValue" value="${it}"/>
+				<script type="text/javascript" src="${resURL}/plugin/template/js/updateTemplate.js"></script>
+				<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/template-manage.css" />    
+    </l:layout>
+</j:jelly>

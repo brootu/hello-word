@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="CMBC_DevOps模板配置" type="one-column">
+        <l:main-panel>
+        <div style="height:70px">
+        	<h3 style="margin-left:4%">
+	        	<span style="color:#4a90e2;">CMBC_DevOps流水线配置</span>
+	        	<!--
+	        	<button onclick="toAreaSetting()">testsArea</button>
+	        	<div>
+		        	<p id="1">11111</p>
+		        	<p id="2">22222</p>
+		        	<p id="3">33333</p>
+		        </div>
+		        -->	
+        	</h3>
+        </div>
+	        <div class="nval" id="divNval">
+				  <div class="curreYamls" style="margin:right:2em;">
+				   <span style="font-size:12px">导航栏</span>
+				    <i class="glyphicon glyphicon-plus" onclick="addStage()" title="新增步骤"></i>
+				    <i class="glyphicon glyphicon-remove" onclick="removeStages()" title="移除步骤" ></i>
+					<i class="glyphicon glyphicon-arrow-up" onclick="moveUp()" alt="点击上移" title="点击上移"></i>
+					<i class="glyphicon glyphicon-arrow-down" onclick="moveDown()" title="点击下移"></i>
+					<i onclick="addStages()" title="复制步骤" >copy</i>
+				<!--	
+					class="glyphicon glyphicon-euro"
+				   <img src="${resURL}/plugin/template/png/up.png" onclick="moveUp()" alt="点击上移" title="点击上移" width="18px;height=12px;" style="margin:7px;" />
+				   <img src="${resURL}/plugin/template/png/add.png" onclick="addStages()" alt="新增stage" title="新增stage" width="18px;height=12px;" style="margin:7px;" />
+				   <img src="${resURL}/plugin/template/png/remove.png" onclick="removeStages()" alt="移除stage" title="移除stage" width="18px;height=12px;" style="margin:7px;" />
+				   <img src="${resURL}/plugin/template/png/down.png" onclick="moveDown()" alt="点击下移" title="点击下移" width="18px;height=12px;" style="margin:7px;" />
+        		-->
+				  </div>
+	        	<div class="nval1" id="templateType" onclick="stages(-1)" style="background-color: rgb(102, 204, 204);">选择类别</div>
+	        	<div class="nval1" onclick="stage1(2)" style="display:none" id="st2">选择模板</div>
+	        	<div id="nval" class="scrollBar"></div>
+	        </div>
+	<!--<form action="converts" method="post" id="myForm" onsubmit="return check(this)">-->
+	<form action="templateSubmit" method="post" id="templateSubmit">
+		<div class="box1" id="box1">
+		  <div class="border1" id="border1">
+		    <div class="back1">
+		    	<span style="float:left;font-size:20px">选择类别</span><br/>
+				<div id="typeListName">
+					<j:forEach var="template" items="${it.templateType}">
+						<div class="listJob" id="${template.key}" onclick="getTemplateType('${template.key}')">${template.key}</div>
+					</j:forEach>
+				</div>		    	
+			    <div class="front1" hidden="hidden" id="getTemplateName">
+					<span style="font-size:20px">选择模板</span><br/>
+					<div id="jobListName"></div>
+			    </div>
+		    </div>
+		  </div>
+		  		<div  id="myBtn" hidden="hidden">
+		  		<!--
+		  		<h2>有问题请联系：<p>姜斌：xxxxxxxx</p><p>赵宋海：xxxxxxxx</p><p>步冲冲：xxxxxxxx</p></h2>
+				  	<input type="button" onclick="submitTemplate()" value="提交" class="submitMenu"/>
+				  	<a href="../"><input type="button" value="退出" class="submitMenu" /></a>
+		  		-->
+			  	</div>
+		</div>	
+		<!-- hidden="hidden"
+	      <div class="stage">
+				<div class="curreYamls"  id="stageUp" style="margin-left:20px;"><img title="上一步" src="${resURL}/plugin/template/png/upStage.png" alt="上一步" /></div>
+				<div class="curreYamls" id="stageDown" style="margin-left:20px;" onclick="toUp()"><img title="下一步" src="${resURL}/plugin/template/png/downStage.png" alt="下一步" /></div>
+	      </div>
+	      -->		 
+       <input type="hidden" value="${resURL}" id="resURL"/>
+       <input type="hidden" id="endSubmit"/>
+       <input type="hidden" id="stageMarks"/>
+       <input type="hidden" id="yamlValues" name="yamlValues"/>
+       <input type="hidden" id="stageValue" name="stageValue"/>
+       <input type="hidden" id="stageKey" name="stageKey"/>
+       <input type="hidden" value="${resURL}/images/16x16/help.png" id="helpImg"/>
+       <input type="hidden" value="${resURL}/images/none.gif" id="errGif"/>
+	</form>       
+	  <div id="overlay"></div>
+	  <div id="win">
+		  	<span id="title"></span>
+		  	<h2>
+		  		<span id="close">x</span>
+		  	</h2>
+			<div id="textarea">
+				<textarea style="width:99%;height:100%;resize:none;" autofocus="autofocus" id="area" name="area"></textarea>
+				<button class="submit" onclick="submitFolder()">保存</button>
+				<button class="submit" id="close2">关闭</button>
+			</div>
+			<input type="hidden" id="folderKey" name="folderKey"/>
+			<input type="hidden" id="curl" name="curl"/>
+	  </div>
+	  <div id="addStage">
+		  	<span id="addStageTitle"></span>
+		  	<h2>
+		  		<span onclick="addStageClose()" id="addStageClose">x</span>
+		  	</h2>
+			<div id="addStageBody">
+				<br />
+				<div class="addstage" style="float:left">111</div>
+			</div>
+	  </div>			
+        </l:main-panel> 
+	<!--js引入css引入
+	<script type="text/javascript" src="${resURL}/plugin/template/js/indexUser.js"></script>
+	<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/indeUser.css" />
+	-->
+  	<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/bootstrap.min.css" />
+  	<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/template-menu.css" />
+  	<script type="text/javascript" src="${resURL}/plugin/template/js/template-menu.js"></script>	
+     <!--ajax-->
+     <st:bind var="getAllYamls" value="${it}"/>
+     <st:bind var="getAllYaml" value="${it}"/>
+     <st:bind var="getAllJobName" value="${it}"/>
+     <st:bind var="getYamlValue" value="${it}"/>
+     <st:bind var="checkJobName" value="${it}"/>
+     <st:bind var="findTextareaName" value="${it}"/>
+     <st:bind var="getTextareaValue" value="${it}"/>
+     <st:bind var="getYaml" value="${it}"/>
+     <st:bind var="areaSetting" value="${it}"/>
+    </l:layout>
+</j:jelly>

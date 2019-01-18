@@ -1,0 +1,124 @@
+ul.nvals {
+    list-style-type: none;
+/*     margin: 0; */
+/*     padding: 0; */
+/*     overflow: hidden; */
+    background-color: #333;
+    position: fixed;
+/*     top: 0; */
+    width: 100%;
+}
+
+ul.nvals li {
+    float: left;
+}
+
+ul.nvals li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.nvals li a:hover:not(.active) {
+    background-color: #111;
+    border-color: #cccccc;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+.col-md-20{
+	background-color: #f9f9f9;
+	border: solid 1px #cccccc;
+	border-radius:3px;
+}
+/* .jenkins-config-widgets2{ */
+/* 	margin-left:-16px; */
+/* 	margin-right:-16px; */
+/* 	box-sizing:border-box; */
+/* } */
+.form-config{
+	border:1px solid #cccccc;
+	border-bottom:0px solid #cccccc;
+	background:#eeeeee;
+	min-height:40px;
+	padding:5px 0 0;
+	margin:0;
+	margin-left:-16px;
+	margin-right:-16px;
+}
+.box-selected{
+	border:1px solid #cccccc;
+	border-bottom:1px solid #f9f9f9;
+	fontWeight:bold;
+	background:#f9f9f9;
+	z-index:2;
+	color:#000;
+	padding:7px 10px;
+	margin:1px 0 0 10px;
+	line-height:1.4em;
+	font-size:13px;
+	font-family:Helvetica, Arial, sans-serif;
+	-webkit-box-sizing:border-box; /* Safari */
+	float:left;
+	text-decoration:none;
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; /* Firefox */
+}
+.box{
+	color:#999;
+	border:solid 1px transparent;
+	padding:7px 10px;
+	text-decoration:none;
+	margin:1px 0 0 10px;
+	border-top-right-radius:5px;
+	border-top-left-radius:5px;
+	line-height:1.4em;
+	font-size:13px;
+	font-family:Helvetica, Arial, sans-serif;
+/* 	border-bottom:solid 1px #ff0000; */
+box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box; /* Safari */
+float:left;
+/* border:1px solid red; */
+/* width:30%; */
+}
+.jenkins-config-widgets{
+/* 	position:absolute; */
+/* 	left:0px; */
+/* 	right:0px; */
+-moz-box-sizing:inherit; 
+-webkit-box-sizing:inherit;
+}
+.show{
+	padding:5px;
+	margin:30px 0px 5px -10px;
+	font-size:1.5em;
+}
+.show td{
+	vertical-align:top;
+	margin-top:10px;
+}
+.section-heade
+{
+margin: 30px 0px 5px -10px;
+font-size: 1.5em;
+padding: 10px 15px;
+border: none;
+border-top: 1px solid #ddd;
+font-weight: bold;
+}
+.setting-name{
+/* 	padding: 10px 20px; */
+	padding: 10px 0px 10px 20px;
+	font-size: 15px;
+	line-height: 10px;
+}
+.nav{
+	cursor:pointer;
+}

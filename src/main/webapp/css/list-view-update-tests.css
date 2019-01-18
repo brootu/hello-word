@@ -1,0 +1,67 @@
+*{
+    list-style:none;
+    margin:0;
+    padding:0;
+    text-decoration:none;
+    font-family:'Microsoft YaHei';
+}
+#nav-container li{
+    width:100px;
+    height:50px;
+    line-height:50px;
+    float:left;
+    border-right:2px solid #eee;
+    text-align:center;
+    cursor:pointer;
+}
+ul{
+    width:1200px;   
+/*     margin:0 auto; */
+    margin-left:20%;
+}
+.nav{
+    height:52px;
+    width:100%;
+    background:#f5f5f5;
+}
+.nav .cur{
+    background:#fff;
+    border-top:2px solid #1a92cf;
+    color:#1a92cf;
+}
+.fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    
+/*     margin-left:13.33333% */
+}
+a{
+    color:#505050;
+}
+.tab {
+    white-space: nowrap; // 这个必须有
+    height: 1.466666666666667rem;
+    line-height: 1.466666666666667rem;
+    font-size: 0.426666666666667rem;
+    overflow-y: hidden; // 这个必须有
+}
+.tab .table-item {
+    padding-left: 0.133333333333333rem;
+    padding-right: 0.133333333333333rem;
+    display: inline-block; // 这个必须有
+}
+
+
+.jenkins-config-widgets2{
+	margin-left:-16px;
+	margin-right:-16px;
+	box-sizing:border-box;
+}
+.form-config{
+	border:1px solid #cccccc;
+	background:#eeeeee;
+	min-height:40px;
+	padding:5px 0 0;
+	margin:0;
+}

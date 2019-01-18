@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout norefresh="true" title="CMBC_Config" type="one-column">
+        <l:main-panel>
+        <div class="behavior-loading">加载中</div>
+        <div class="container">
+        <div class="row">
+			<div class="col-md-offset-2 col-md-20" id="col-md-width" >
+			    <form action="areaSetting" method="post" id="areaSetting">
+			    	<table>
+				    	<tr>
+			      			<td style="line-height:300px">FolderKey</td>
+			      			<td>
+			      				<textarea autofocus="autofocus" id="area" name="area" rows="23" cols="80"></textarea>
+			      			</td>
+			      		</tr>
+			    	<tr>
+						<td></td>
+						<td>
+							<span class="yui-button yui-submit-button submit-button primary" id="yui-gen13" name="Submit">
+								<span class="first-child">
+									<button type="button" onclick="submitFolder()" tabindex="0" id="yui-gen13-button">保存</button>
+								</span>
+							</span>
+						</td>
+						<td>
+							<span class="yui-button yui-push-button apply-button applyButton" id="yui-gen7" name="Apply">
+								<span class="first-child">
+									<button type="button" tabindex="0" id="yui-gen7-button" onclick="window.close();">返回</button>
+								</span>
+							</span>
+						</td>
+					</tr>
+					</table>
+			    			<input type="hidden" id="folderKey" name="folderKey"/>
+			    			<input type="hidden" id="curl" name="curl"/>
+				</form>
+			</div>
+		</div>
+		</div>
+        </l:main-panel>
+        <st:bind var="findTextareaName" value="${it}"/>
+        <st:bind var="areaSetting" value="${it}"/>
+        <script type="text/javascript" src="${resURL}/plugin/template/js/template-area.js"></script>
+    </l:layout>
+</j:jelly>

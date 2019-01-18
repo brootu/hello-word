@@ -1,0 +1,77 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+  <l:layout title="CMBC_DevOps流水线配置">
+       <l:side-panel> 
+        </l:side-panel>
+    <l:main-panel>
+      <h1>CMBC_DevOps流水线配置</h1>
+      <hr></hr>
+      	  <form action="converts" method="post" id="myForm" onsubmit="return check(this)">
+          	<f:entry title="选择类别：">
+				<select id="devTypeId" class="setting-input" name="selKey" > 
+					<option value="-1">选  择</option>
+					<j:forEach var="devType" items="${it.indexList.map}" >
+				    	<option value="${devType.key}" label="${devType.key}">${devType.value.yamls}+${devType.value.jobXml}</option>
+					</j:forEach>
+					<!--<option value="-2">自定义配置(高级)</option>-->
+				</select> <br /><br />
+			</f:entry>
+							<table id="tab2" style="display:none;">
+								<tr><td><h4>Yamls设置：</h4></td></tr>
+								<tr id="visualization">
+									<td id="left" style="width: 200px;">可用Yamls：<br/>
+								 	<j:forEach var="assoction" items="${it.associationYamls}" >
+								 	<input type="hidden" value="${assoction.value}" id="${assoction.key}"/>
+									<label draggable="true" onclick="lookStageYaml('${assoction.key}')" style="display:block;margin:5px 2px 6px 5px; font-size:13px;cursor: hand;cursor: pointer; ">
+										Stage：${assoction.key}
+									</label>
+									 </j:forEach>
+									</td>
+									<td width="100px"></td>
+									<td id="visValue" width="300px" style="border: 1px solid #79CDCD;background-color: #79CDCD;"></td>	
+								</tr>
+								<tr id="stageYaml" style="display:none;">
+									<td><textarea rows="10" cols="40" disabled="true" id="stageYamlTextarea"/></td>
+									<td><br/><input type="button" value="收起" onclick="collapse('stageYaml')"/></td>
+								</tr>
+							</table>			
+			<div id="jobNameId">
+				<f:entry title="系统名称：" field="jobName">
+					<div>
+				     <f:textbox id="jobNames" onblur="verification()"/><br /><br />
+				    </div> 
+				</f:entry> 	
+				<table width="100%">
+				<hr></hr><tr><td></td></tr>
+					<tbody id="tab">
+					</tbody> 
+				</table>
+            		<!--<f:entry>
+            		<br />
+            		<f:submit value="Submit" onClick="return check()"/>
+                    <f:apply value="Apply"/>
+                    </f:entry>-->
+<span class="yui-button yui-submit-button submit-button primary" id="yui-gen1" name="Submit">
+	<span class="first-child">
+		<div id="pngAppend"></div>
+		<input type="submit" value="Submit" class="submit-button primary" id="myBtn-button"/>
+	</span>
+</span>
+			</div>
+		</form>
+          <!--</f:form>-->
+         <input type="hidden" value="${resURL}/images/16x16/help.png" id="helpImg"/>
+         <input type="hidden" value="${resURL}/images/none.gif" id="errGif"/>
+         <input type="hidden" value="${resURL}" id="resURL"/>
+         <st:bind var="a" value="${it}"/>
+         <!--<div id="msg"> <input type="button" value="qwe" onclick="verification()"/></div>-->
+		<!--css引入
+			<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/indexs.css" />
+			<img src="${resURL}/images/16x16/help.png" alt="help" style="width: 16px; height: 16px; " class="setting-help" />
+				-->
+            			<!--js引入-->
+		<script type="text/javascript" src="${resURL}/plugin/template/js/appends.js"></script>
+		<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/manage.css" />
+    </l:main-panel>
+  </l:layout>
+</j:jelly>

@@ -1,0 +1,131 @@
+.step-stroke-bottom{
+    background: -webkit-linear-gradient(top, rgba(251, 251, 251, 0.09),rgba(251, 251, 251, 0.59),#FFF); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(top, rgba(251, 251, 251, 0.09),rgba(251, 251, 251, 0.59) ,#FFF); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(bottom,rgba(251, 251, 251, 0.09),rgba(251, 251, 251, 0.59) ,#f7f7f7); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom, rgba(251, 251, 251, 0.09)rgba(251, 251, 251, 0.59), ,#FFF); /* 标准的语法（必须放在最后） */
+ background-color:#d5d5d5;
+	background-color:#949393;
+	flex-grow: 1;
+    width:3px;
+    position:relative;
+    margin-left:14px;
+    
+/*     background: linear-gradient(#949393, #ffffff); */
+/*     background: transparent; */
+}
+.step-stroke-top{
+	background:#949393;
+}
+.border{
+	width:120px;
+	height:30px;
+	border: solid 1px #cbcbcb;
+	margin:10px 10px;
+	text-align:center ;
+	line-height:20px;
+	cursor:pointer;
+	padding:5px 10px;
+	overflow:hidden;
+}
+.centers{
+	margin-left:37%;
+}
+.template-tyle{
+	float:left;
+	position:relative;
+    width:40%;
+/*     height:270px; */
+}
+.template-enter{
+	float:left;
+	margin-right:27px;
+}
+h2{
+	margin-top:7px;
+}
+select{
+	float:right
+}
+.div-border{
+	width:150px;
+	height:40px;
+	border: solid 1px #cbcbcb;
+	margin:1px 28px 6px 0px;
+	text-align:center ;
+	line-height:37px;
+	cursor:pointer;
+/* 	padding:5px 10px; */
+	overflow:hidden;	
+	border-radius:7px;
+	float:left
+}
+#devTypeId{
+	margin-top:40px;
+}
+img{
+	height:32px;
+}
+.assctionJob{
+	border: solid 1px #cbcbcb;
+	float:left;
+	cursor:pointer;
+}
+.listJob{
+	width:120px;
+	height:30px;
+	border: solid 1px #cbcbcb;
+	margin:10px 10px;
+	text-align:center ;
+	line-height:20px;
+	float:left;
+	cursor:pointer;
+	padding:5px 10px;
+	overflow:hidden;
+}
+.listJob:hover{
+   background-color: #008CBA;
+   	color: white;
+    cursor:pointer;
+}
+//
+.box1{
+  position: relative;
+  float:right;
+  margin-right:30%;
+/*   top: 100px; */
+/*   left: 100px; */
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.border1{
+  position: absolute;
+/*   top: -100%; */
+  left: 0px;
+  width: 100%;
+  height: 200%;
+/*   -webkit-transform: translateY(0px);    */
+/*   transform: translateY(0px); */
+  -webkit-transition:1s all ease;
+  transition:1s all ease;
+}
+.front1{
+  width: 100%;
+  height: 50%;
+/*   background: #ff0000; */
+}
+
+.back1{
+  width: 100%;
+  height: 50%;
+/*   background: #00ff00; */
+}
+/* .box1:hover .border1{ */
+/*   -webkit-transform: translateY(50%);    */
+   /* webkitTransform */
+/*   transform: translateY(50%); */
+/*   -webkit-transition:1s all ease; */
+   /* webkitTransition */
+/*   transition:1s all ease; */
+/* } */

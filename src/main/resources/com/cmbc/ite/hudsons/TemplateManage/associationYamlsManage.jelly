@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="CMBC_DevOps模板配置">
+   		 <l:side-panel> 
+			<br/><h1>AssociationYamlsManage</h1>
+			 <br/><br/><br/>
+			<div id="cmbcList">
+			<form method="post" id="myForms">
+				<table id="manageJobAssoc">
+					<tr>
+						<td><div style="width:70px;line-height:72px;">Yaml列表：</div></td>
+						<td>
+							<div id="assctionYamls" >
+								<j:forEach var="listJob" items="${it.associationYamls}">
+									<input type="hidden" value="${listJob.value.assJobs}" id="${listJob.key}assJobValue"/>
+									<input type="hidden" value="${listJob.value.yaml}" id="${listJob.key}yamlValue"/>
+									<div style="float:left" class="listJob" id="${listJob.key}" onclick="setAssYaml('${listJob.key}')">${listJob.key}</div>
+									<img style="float:left" onclick="deleteYaml('${listJob.key}')" title="移除Yaml" src="${resURL}/plugin/template/png/delete.png" alt="移除Yaml" />
+								</j:forEach>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>JobName：</td>
+						<td><input type="text" name="_.name" id="jobName"/></td>
+					</tr>
+					<tr>
+						<td>JobXmls：</td>
+						<td><textarea rows="20" cols="70" id="jobXml" name="_.jobXml"/></td>
+					</tr>
+					<tr>
+						<td style="line-height:60px;"><div style="width:60px;line-height:112px;">关联Job：</div></td>
+						<td>
+							<div id="assctionJob" >
+								<j:forEach var="listJob" items="${it.associationJob}">
+									<div class="listJob" id="${listJob.key}" onclick="getAssJob('${listJob.key}')">${listJob.key}</div>
+								</j:forEach>
+							</div>
+						</td>
+					</tr>					
+					<tr class="submits">
+						<td><input type="button" value="确定" onclick="addAssocYaml()"/></td>
+						<td><a href="index"><input type="button" value="返回"/></a></td>
+					</tr>	
+				</table>
+				<input type="hidden" id="assYamlsKey" name="assJobKey"/>
+				<input type="hidden" id="assctionXml" name="bah"/>
+				</form>
+			</div>
+       </l:side-panel>
+           <l:main-panel>
+           </l:main-panel>
+		            			<!--js引入css引入-->
+				<script type="text/javascript" src="${resURL}/plugin/template/js/template-manage.js"></script>
+				<link type="text/css" rel="styleSheet"  href="${resURL}/plugin/template/css/template-manage.css" />    
+    </l:layout>
+</j:jelly>
